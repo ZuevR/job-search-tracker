@@ -21,9 +21,9 @@ export default function SiteHeader() {
 				<Link href="/" className="flex items-center gap-2">
 					<span
 						className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-600 text-lg font-bold text-white">
-						P
+						JT
 					</span>
-					<span className="text-lg font-semibold tracking-tight text-gray-900">MyProject</span>
+					<span className="text-lg font-semibold tracking-tight text-gray-900">Job Tracker</span>
 				</Link>
 
 				<nav className="flex items-center gap-1">

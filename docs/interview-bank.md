@@ -21,6 +21,10 @@
 Это глобальные типы, которые `next dev`, `next build` и `next typegen` генерируют в `.next/types` по реальной структуре `app/`. Благодаря им `params` типизированы по сегментам маршрута, а `href` у `Link` проверяется на существующие маршруты.
 → nextjs.org/docs/app/api-reference/config/typescript
 
+**Как задать `<title>` для каждой страницы? Что такое `title.template`, `default`, `absolute`?**
+`metadata` из layouts и pages сливается по пути маршрута, и более глубокий сегмент перекрывает поля родителя. В layout задают `title: { template: '%s | App', default: 'App' }`. Страница отдаёт строку, и она подставляется в `%s`. `default` используется для дочерних сегментов, которые свой title не задали (например, 404). `absolute` игнорирует template родителя. Template действует на дочерние сегменты, а не на сегмент, где он объявлен.
+→ nextjs.org/docs/app/api-reference/functions/generate-metadata#template · проект: задача 2.
+
 ## 2. Server vs Client Components
 
 ## 3. Загрузка данных, streaming, ошибки
@@ -38,3 +42,11 @@
 ## 9. Route Handlers
 
 ## 10. Качество и производительность
+
+**Что делает `next/font`? Как он убирает layout shift?**
+Google-шрифт скачивается при сборке и раздаётся как статический ассет с нашего домена: браузер не ходит в Google, нет лишнего соединения, и это лучше для приватности. Для CLS Next генерирует fallback-шрифт (например, `"Geist Fallback"` на основе Arial) с `size-adjust` и overrides метрик, чтобы при подмене fallback → web-шрифт текст не прыгал. Подключают через `className` или `variable`. `variable` только объявляет CSS-переменную, а применяет её ваш CSS (в Tailwind 4 — через `--font-sans` в `@theme`). `subsets` определяет, какие наборы глифов грузить: без `cyrillic` русский текст уйдёт в системный шрифт.
+→ nextjs.org/docs/app/api-reference/components/font · проект: задача 2.
+
+**Почему класс Tailwind не применяется, хотя он есть на элементе?**
+В Tailwind 4 утилиты лежат в нативном CSS-слое `@layer utilities`. Любой стиль **вне** слоёв побеждает любой стиль внутри слоя, независимо от специфичности. Поэтому `body { background: … }` в `globals.css` перебивает `bg-gray-50` на `<body>`. Решение — класть свои базовые стили в `@layer base`. Для `!important` порядок слоёв обратный.
+→ developer.mozilla.org/en-US/docs/Web/CSS/@layer · tailwindcss.com/docs/adding-custom-styles · проект: задача 2.

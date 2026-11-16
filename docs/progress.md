@@ -36,12 +36,16 @@ Vitest + Playwright, Lighthouse/бандл, a11y, канбан с DnD, стат�
 | # | Задача | Модуль | Статус | Файл |
 |---|--------|--------|--------|------|
 | 1 | Проект, GitHub, первый деплой | 1 | ✅ 14.11 | [tasks/01-project-setup.md](tasks/01-project-setup.md) |
-| 2 | Каркас: вложенные layouts, навигация, metadata, шрифт | 1 | 🔄 выдана | [tasks/02-layouts-navigation.md](tasks/02-layouts-navigation.md) |
+| 2 | Каркас: вложенные layouts, навигация, metadata, шрифт | 1 | ✅ 16.11 | [tasks/02-layouts-navigation.md](tasks/02-layouts-navigation.md) |
 
 ## Что понял
 
 - Типы маршрутов (`LayoutProps`, `PageProps`) — глобальные, их генерирует Next в `.next/types` по структуре `app/`.
 - Layout не перерисовывается при навигации внутри своего сегмента.
+- С `cacheComponents` ушедшие маршруты прячутся через `<Activity>` (до 3 штук), а не размонтируются: сохраняются state и DOM.
+- `metadata` сливается по дереву сегментов; `title.template`/`default`/`absolute`.
+- `next/font`: шрифт скачивается при сборке и раздаётся со своего домена; fallback с подогнанными метриками против CLS; `variable` только объявляет CSS-переменную.
+- Cascade layers: стили вне `@layer` побеждают утилиты Tailwind 4.
 
 ## Слабые места
 

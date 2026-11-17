@@ -1,17 +1,12 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Source_Sans_3, Oxanium } from 'next/font/google';
 import './globals.css';
 import SiteHeader from '@/components/site-header'
+import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['cyrillic', 'latin'],
-});
+const oxaniumHeading = Oxanium({ subsets: ['latin'], variable: '--font-heading' });
 
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
-	subsets: ['cyrillic', 'latin'],
-});
+const sourceSans3 = Source_Sans_3({subsets:['cyrillic', 'latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
 	title: {
@@ -25,7 +20,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
 	return (
 		<html
 			lang="ru"
-			className={ `${ geistSans.variable } ${ geistMono.variable }` }
+			className={cn("font-sans", sourceSans3.variable, oxaniumHeading.variable)}
 		>
 			<body className="min-h-screen antialiased">
 				<SiteHeader />

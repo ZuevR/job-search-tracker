@@ -1,38 +1,26 @@
-'use client';
-
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import NavLink from '@/components/nav-link';
 
 const links = [
-	{ href: '/dashboard', label: 'Обзор' },
+	{ href: '/dashboard', label: 'Обзор', exact: true },
 	{ href: '/dashboard/vacancies', label: 'Вакансии' },
 	{ href: '/dashboard/applications', label: 'Отклики' },
 ];
 
 export default function DashboardNav() {
-	const pathname = usePathname();
-
 	return (
 		<nav className="space-y-1 border-t border-gray-100 pt-3">
-			{ links.map(({ href, label }) => {
-				const active =
-					href === '/dashboard'
-						? pathname === '/dashboard'
-						: pathname.startsWith(href);
-
+			{ links.map(({ exact, href, label }) => {
 				return (
-					<Link
+					<NavLink
 						key={ href }
+						exact={ exact }
 						href={ href }
-						aria-current={ active ? 'page' : undefined }
-						className={ `block rounded-lg px-3 py-2 text-sm font-medium transition ${
-							active
-								? 'bg-indigo-50 text-indigo-700'
-								: 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-						}` }
+						className="block rounded-lg px-3 py-2 text-sm font-medium transition"
+						activeClassName="bg-indigo-50 text-indigo-700"
+						inactiveClassName="text-gray-700 hover:bg-gray-100 hover:text-gray-900"
 					>
 						{ label }
-					</Link>
+					</NavLink>
 				);
 			}) }
 		</nav>

@@ -1,35 +1,51 @@
 # Прогресс
 
-**Дедлайн:** ср, 18.11.2026 — готовность к собеседованиям (живой проект + банк ответов).
+**Дедлайн:** ср, 25.11.2026 (перенесён с 18.11) — готовность к собеседованиям (живой проект + банк ответов).
 **Темп:** 8–10 ч/день, задачи по 30–90 минут.
 
 ## План по дням
 
-### Сб, 14.11 — фундамент
-- [ ] 1. Старт: create-next-app, структура App Router, layout/page, `Link`, `next/font`, metadata, GitHub → Vercel
-- [ ] 2. Tailwind + shadcn/ui: лендинг и каркас кабинета
-- [ ] 3. Server vs Client Components: граница, `'use client'`, сериализуемые props, композиция через `children`
+### Сб–Пн, 14–16.11 — фундамент
+- [x] 1. Старт: create-next-app, App Router, layout/page, `Link`, `next/font`, metadata, GitHub → Vercel (задачи 1–2)
 
-### Вс, 15.11 — данные
+### Вт, 17.11 — граница Server/Client и данные
+- [ ] 2+3. shadcn/ui + граница Server/Client: `'use client'`, сериализуемые props, композиция через `children` (задача 3)
 - [ ] 4. Загрузка данных в серверных компонентах (агрегатор), параллельная vs последовательная, `searchParams`
+
+### Ср, 18.11 — streaming и ошибки
 - [ ] 5. `loading.tsx`, Suspense, streaming, `error.tsx`, `not-found.tsx`
-- [ ] 6. Кэширование в Next 16: Cache Components, `'use cache'`, `cacheLife`, `cacheTag`; static/dynamic по build output; отличия от модели 13–15
+- [ ] 6а. Cache Components: `'use cache'`, static shell, `◐` в build output
 
-### Пн, 16.11 — маршруты и мутации
+### Чт, 19.11 — кэширование и маршруты
+- [ ] 6б. `cacheLife`, `cacheTag`, ревалидация; отличия от модели 13–15
 - [ ] 7. Динамические маршруты, `generateStaticParams`, route groups, parallel + intercepting routes (модалка вакансии)
+
+### Пт, 20.11 — БД
 - [ ] 8. Postgres в Docker + Drizzle, data access layer (`server-only`)
-- [ ] 9. Server Actions: формы, zod, `useActionState`, `useOptimistic`, ревалидация
+- [ ] 9а. Server Actions: формы, zod, `useActionState`
 
-### Вт, 17.11 — auth и интеграция
-- [ ] 10. Auth: вход, сессии, `proxy.ts`, защита страниц и Server Actions
+### Сб, 21.11 — мутации
+- [ ] 9б. `useOptimistic`, ревалидация после мутаций, обработка ошибок
+- [ ] 10а. Auth: выбор библиотеки, вход, сессии
+
+### Вс, 22.11 — auth и интеграция
+- [ ] 10б. `proxy.ts`, защита страниц и Server Actions
 - [ ] 11. Route Handlers, webhook от агрегатора → инвалидация по тегу
+
+### Пн, 23.11 — прод и качество
 - [ ] 12. Прод: Neon + Vercel, README-кейс, 3–4 истории «проблема → решение»
+- [ ] 13. Тесты: Vitest (unit для DAL/actions) + один Playwright-сценарий
 
-### Ср, 18.11 утро
-- [ ] Прогон `interview-bank.md`
+### Вт, 24.11 — буфер и полировка
+- [ ] Буфер под хвосты
+- [ ] Одно из: канбан с DnD / статистика воронки / Lighthouse + разбор бандла
+- [ ] Пробное собеседование: прогон `interview-bank.md` вслух
 
-### После среды
-Vitest + Playwright, Lighthouse/бандл, a11y, канбан с DnD, статистика воронки, OG-картинки, напоминания.
+### Ср, 25.11 утро
+- [ ] Финальный прогон слабых мест
+
+### После 25.11
+a11y, OG-картинки, напоминания, оставшиеся пункты из вторника.
 
 ## Задачи
 
@@ -37,6 +53,7 @@ Vitest + Playwright, Lighthouse/бандл, a11y, канбан с DnD, стат�
 |---|--------|--------|--------|------|
 | 1 | Проект, GitHub, первый деплой | 1 | ✅ 14.11 | [tasks/01-project-setup.md](tasks/01-project-setup.md) |
 | 2 | Каркас: вложенные layouts, навигация, metadata, шрифт | 1 | ✅ 16.11 | [tasks/02-layouts-navigation.md](tasks/02-layouts-navigation.md) |
+| 3 | shadcn/ui и граница Server/Client | 1 | 🔄 выдана 16.11 | [tasks/03-shadcn-server-client.md](tasks/03-shadcn-server-client.md) |
 
 ## Что понял
 

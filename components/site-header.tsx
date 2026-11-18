@@ -31,26 +31,31 @@ export default function SiteHeader() {
 					<span className="text-lg font-semibold tracking-tight text-foreground">Job Tracker</span>
 				</Link>
 
-				<nav className="flex items-center gap-4">
-					{ links.map(({ href, label, exact }) =>
-						(
-							<NavLink
-								key={ href }
-								exact={ exact }
-								href={ href }
-								className={ cn(buttonVariants({ variant: 'ghost' }), 'px-4 hover:text-primary') }
-								activeClassName="bg-accent/20 text-primary hover:bg-accent/20 hover:text-primary"
-							>
-								{ label }
-							</NavLink>
-						)) }
-
+				<div className="flex items-center gap-4">
+					<nav className="flex items-center gap-4">
+						{ links.map(({ href, label, exact }) =>
+							(
+								<NavLink
+									key={ href }
+									exact={ exact }
+									href={ href }
+									className={ cn(buttonVariants({ variant: 'ghost' }), 'px-4 hover:text-primary') }
+									activeClassName="bg-primary/10 text-primary hover:bg-primary/10 hover:text-primary"
+								>
+									{ label }
+								</NavLink>
+							)) }
+					</nav>
 					<Link href="/login" className={ buttonVariants({ variant: 'default' }) }>Войти</Link>
 
 					<DropdownMenu>
 						<DropdownMenuTrigger
 							render={
-								<Button variant="outline">
+								<Button
+									variant="secondary"
+									aria-label="Меню пользователя"
+									size="icon"
+								>
 									<User />
 								</Button>
 							}
@@ -60,11 +65,12 @@ export default function SiteHeader() {
 								<DropdownMenuLabel>Имя Пользователя</DropdownMenuLabel>
 								<DropdownMenuSeparator />
 								<DropdownMenuItem>Профиль</DropdownMenuItem>
-								<DropdownMenuItem>Выйти</DropdownMenuItem>
+								<DropdownMenuSeparator />
+								<DropdownMenuItem variant="destructive">Выйти</DropdownMenuItem>
 							</DropdownMenuGroup>
 						</DropdownMenuContent>
 					</DropdownMenu>
-				</nav>
+				</div>
 			</div>
 		</header>
 	);

@@ -18,7 +18,7 @@ export default function DashboardNav() {
 						exact={ exact }
 						href={ href }
 						className={ cn(buttonVariants({ variant: 'ghost' }), 'flex px-3 justify-start hover:text-primary') }
-						activeClassName="bg-accent/20 text-primary hover:bg-accent/20 hover:text-primary"
+						activeClassName="bg-primary/10 text-primary hover:bg-primary/10 hover:text-primary"
 					>
 						{ label }
 					</NavLink>

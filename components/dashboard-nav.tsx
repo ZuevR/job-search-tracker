@@ -1,4 +1,6 @@
 import NavLink from '@/components/nav-link';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 
 const links = [
 	{ href: '/dashboard', label: 'Обзор', exact: true },
@@ -8,16 +10,15 @@ const links = [
 
 export default function DashboardNav() {
 	return (
-		<nav className="space-y-1 border-t border-gray-100 pt-3">
+		<nav className="space-y-1 border-t pt-3">
 			{ links.map(({ exact, href, label }) => {
 				return (
 					<NavLink
 						key={ href }
 						exact={ exact }
 						href={ href }
-						className="block rounded-lg px-3 py-2 text-sm font-medium transition"
-						activeClassName="bg-indigo-50 text-indigo-700"
-						inactiveClassName="text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+						className={ cn(buttonVariants({ variant: 'ghost' }), 'flex px-3 justify-start hover:text-primary') }
+						activeClassName="bg-accent/20 text-primary hover:bg-accent/20 hover:text-primary"
 					>
 						{ label }
 					</NavLink>

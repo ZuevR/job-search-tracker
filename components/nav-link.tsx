@@ -10,7 +10,6 @@ type NavLinkProps = {
 	className?: string;
 	exact?: boolean;
 	href: string;
-	inactiveClassName?: string;
 }
 
 export default function NavLink({
@@ -19,7 +18,6 @@ export default function NavLink({
 	className,
 	exact = false,
 	href,
-	inactiveClassName,
 }: NavLinkProps) {
 	const pathname = usePathname();
 
@@ -34,7 +32,7 @@ export default function NavLink({
 			className={
 				cn(
 					className,
-					isActive ? activeClassName : inactiveClassName,
+					isActive && activeClassName,
 				) }
 		>
 			{ children }

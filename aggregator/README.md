@@ -120,7 +120,7 @@ type ApiError = {
 
 1. Vercel → Add New → Project → тот же репозиторий.
 2. **Root Directory:** `aggregator`, **Framework Preset:** Other (не Node: тот ищет точку входа сервера и может взять локальный `src/server.js`). Build-команда не нужна.
-   Установка зависимостей отключена в `vercel.json`: иначе yarn 4 поднимается до корневого проекта Next и падает с «doesn't seem to be part of the project».
+   У агрегатора свой `yarn.lock`: так yarn 4 считает папку отдельным проектом. Без него `yarn install` на Vercel поднимается до корневого проекта Next и падает с «doesn't seem to be part of the project».
 3. После деплоя базовый URL — `https://<проект-агрегатора>.vercel.app/api`.
 4. В проекте Next-приложения: Settings → Environment Variables → `AGGREGATOR_URL` = этот URL.
 

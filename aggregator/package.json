@@ -1,0 +1,9 @@
+{
+  "name": "job-aggregator",
+  "private": true,
+  "type": "module",
+  "description": "Fake vacancy aggregator API for the job-search-tracker learning project. Zero dependencies.",
+  "engines": {
+    "node": ">=20"
+  }
+}

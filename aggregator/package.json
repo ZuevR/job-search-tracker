@@ -4,6 +4,6 @@
   "type": "module",
   "description": "Fake vacancy aggregator API for the job-search-tracker learning project. Zero dependencies.",
   "engines": {
-    "node": ">=20"
+    "node": "24.x"
   }
 }

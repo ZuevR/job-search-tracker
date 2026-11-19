@@ -2,7 +2,7 @@
 
 Внешний бэкенд для учебного проекта. Его пишет Claude, а Next-приложение только ходит в него по HTTP, как в чужой API.
 
-- Без зависимостей: Node ≥ 20, чистый JS, Web-стандартные `Request`/`Response`.
+- Без зависимостей: Node 24, чистый JS, Web-стандартные `Request`/`Response`.
 - Данные генерируются детерминированно (фиксированный seed): 120 вакансий, 20 компаний. Даты публикации отсчитываются от момента запуска сервера.
 - Каждый эндпоинт специально отвечает с задержкой, чтобы были видны водопады запросов.
 
@@ -119,7 +119,8 @@ type ApiError = {
 Агрегатор деплоится отдельным проектом Vercel из того же репозитория:
 
 1. Vercel → Add New → Project → тот же репозиторий.
-2. **Root Directory:** `aggregator`, **Framework Preset:** Other. Build-команда не нужна.
+2. **Root Directory:** `aggregator`, **Framework Preset:** Other (не Node: тот ищет точку входа сервера и может взять локальный `src/server.js`). Build-команда не нужна.
+   Установка зависимостей отключена в `vercel.json`: иначе yarn 4 поднимается до корневого проекта Next и падает с «doesn't seem to be part of the project».
 3. После деплоя базовый URL — `https://<проект-агрегатора>.vercel.app/api`.
 4. В проекте Next-приложения: Settings → Environment Variables → `AGGREGATOR_URL` = этот URL.
 

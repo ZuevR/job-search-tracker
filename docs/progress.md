@@ -10,7 +10,7 @@
 
 ### Вт, 17.11 — граница Server/Client и данные
 - [x] 2+3. shadcn/ui + граница Server/Client: `'use client'`, сериализуемые props, композиция через `children` (задача 3)
-- [ ] 4. Загрузка данных в серверных компонентах (агрегатор), параллельная vs последовательная, `searchParams`
+- [ ] 4. Загрузка данных в серверных компонентах (агрегатор), параллельная vs последовательная (задача 4), `searchParams` (задача 5)
 
 ### Ср, 18.11 — streaming и ошибки
 - [ ] 5. `loading.tsx`, Suspense, streaming, `error.tsx`, `not-found.tsx`
@@ -54,6 +54,7 @@ a11y, OG-картинки, напоминания, оставшиеся пунк
 | 1 | Проект, GitHub, первый деплой | 1 | ✅ 14.11 | [tasks/01-project-setup.md](tasks/01-project-setup.md) |
 | 2 | Каркас: вложенные layouts, навигация, metadata, шрифт | 1 | ✅ 16.11 | [tasks/02-layouts-navigation.md](tasks/02-layouts-navigation.md) |
 | 3 | shadcn/ui и граница Server/Client | 1 | ✅ 18.11 | [tasks/03-shadcn-server-client.md](tasks/03-shadcn-server-client.md) |
+| 4 | Загрузка данных: последовательно и параллельно | 2 | 🔄 выдана 18.11 | [tasks/04-data-fetching.md](tasks/04-data-fetching.md) |
 
 ## Что понял
 

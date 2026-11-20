@@ -63,6 +63,7 @@ a11y, OG-картинки, напоминания, оставшиеся пунк
 | 2 | Каркас: вложенные layouts, навигация, metadata, шрифт | 1 | ✅ 16.11 | [tasks/02-layouts-navigation.md](tasks/02-layouts-navigation.md) |
 | 3 | shadcn/ui и граница Server/Client | 1 | ✅ 18.11 | [tasks/03-shadcn-server-client.md](tasks/03-shadcn-server-client.md) |
 | 4 | Загрузка данных: последовательно и параллельно | 2 | ✅ 20.11 | [tasks/04-data-fetching.md](tasks/04-data-fetching.md) |
+| 5 | `searchParams`: фильтры и пагинация вакансий | 2 | 🔄 выдана 20.11 | [tasks/05-search-params.md](tasks/05-search-params.md) |
 
 ## Что понял
 

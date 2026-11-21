@@ -1,6 +1,7 @@
 import DashboardNav from '@/components/dashboard-nav';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import Form from 'next/form';
 
 export default function DashboardLayout({ children }: LayoutProps<'/dashboard'>) {
 	return (
@@ -13,12 +14,15 @@ export default function DashboardLayout({ children }: LayoutProps<'/dashboard'>)
 						</CardHeader>
 
 						<CardContent>
-							<Input
-								type="search"
-								className="placeholder:text-muted-foreground/80 focus-visible:ring-1"
-								placeholder="Быстрый поиск"
-							/>
-
+							<Form action="/dashboard/vacancies">
+								<Input
+									type="search"
+									name="q"
+									aria-label="Быстрый поиск по вакансиям"
+									className="placeholder:text-muted-foreground/80 focus-visible:ring-1"
+									placeholder="Быстрый поиск"
+								/>
+							</Form>
 							<DashboardNav />
 						</CardContent>
 					</Card>

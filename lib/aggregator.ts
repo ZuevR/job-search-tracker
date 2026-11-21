@@ -63,20 +63,24 @@ export function getStats() {
 	return request<Stats>('/stats');
 }
 
-type QueryConfig = {
-	limit?: number
+export type QueryConfig = {
+	limit?: number;
+	q?: string;
+	remote?: boolean;
+	page?: number;
 }
 
-export function getVacancies({ limit }: QueryConfig = {}) {
-	const urlParams = new URLSearchParams();
+export function getVacancies({ limit, page, q, remote }: QueryConfig = {}) {
+	const urlParams = new URLSearchParams({
+		...(limit !== undefined && { limit: String(limit) }),
+		...(q !== undefined && { q }),
+		...(remote !== undefined && { remote: String(remote) }),
+		...(page !== undefined && { page: String(page) }),
+	});
 
-	if (limit !== undefined) {
-		urlParams.append('limit', String(limit));
-	}
+	const qs = urlParams.toString();
 
-	const path = urlParams.size
-		? `/vacancies?${urlParams.toString()}`
-		: '/vacancies';
+	const path = qs ? `/vacancies?${qs}` : '/vacancies';
 
 	return request<VacancyList>(path);
 }
